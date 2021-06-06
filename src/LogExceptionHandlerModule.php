@@ -1,20 +1,20 @@
 <?php
 declare(strict_types=1);
 
-namespace KnotPhp\Module\KnotExceptionHandler\Log;
+namespace knotphp\module\knotexceptionhandler\log;
 
-use KnotLib\ExceptionHandler\Text\TextDebugtraceRenderer;
 use Throwable;
 
-use KnotLib\ExceptionHandler\Log\LogExceptionHandler;
-use KnotLib\Kernel\EventStream\Channels;
-use KnotLib\Kernel\EventStream\Events;
-use KnotLib\Kernel\Exception\ModuleInstallationException;
-use KnotLib\Kernel\Kernel\ApplicationInterface;
-use KnotLib\Kernel\Module\ComponentTypes;
-use KnotLib\Kernel\Module\ModuleInterface;
+use knotlib\exceptionhandler\text\TextDebugtraceRenderer;
+use knotlib\exceptionhandler\log\LogExceptionHandler;
+use knotlib\kernel\eventstream\Channels;
+use knotlib\kernel\eventstream\Events;
+use knotlib\kernel\exception\ModuleInstallationException;
+use knotlib\kernel\kernel\ApplicationInterface;
+use knotlib\kernel\module\ComponentTypes;
+use knotlib\kernel\module\ModuleInterface;
 
-use KnotPhp\Module\KnotExceptionHandler\Adapter\KnotExceptionHandlerAdapter;
+use knotphp\module\knotexceptionhandler\adapter\KnotExceptionHandlerAdapter;
 
 class LogExceptionHandlerModule implements ModuleInterface
 {
@@ -69,9 +69,9 @@ class LogExceptionHandlerModule implements ModuleInterface
             // fire event
             $app->eventstream()->channel(Channels::SYSTEM)->push(Events::EX_HANDLER_ADDED, $ex_handler);
         }
-        catch(Throwable $e)
+        catch(Throwable $ex)
         {
-            throw new ModuleInstallationException(self::class, $e->getMessage(), 0, $e);
+            throw new ModuleInstallationException(self::class, $ex->getMessage(), $ex);
         }
     }
 }

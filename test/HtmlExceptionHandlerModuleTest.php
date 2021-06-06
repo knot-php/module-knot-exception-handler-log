@@ -1,12 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace KnotPhp\Module\KnotExceptionHandler\Log\Test;
+namespace knotphp\module\knotexceptionhandler\log\test;
 
-use KnotLib\Kernel\Exception\ModuleInstallationException;
-use KnotPhp\Module\KnotExceptionHandler\Adapter\KnotExceptionHandlerAdapter;
-use KnotPhp\Module\KnotExceptionHandler\Log\LogExceptionHandlerModule;
 use PHPUnit\Framework\TestCase;
+
+use knotlib\kernel\exception\ModuleInstallationException;
+use knotphp\module\knotexceptionhandler\adapter\KnotExceptionHandlerAdapter;
+use knotphp\module\knotexceptionhandler\log\LogExceptionHandlerModule;
 
 final class HtmlExceptionHandlerModuleTest extends TestCase
 {
